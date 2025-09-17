@@ -54,16 +54,16 @@ header .job-container {
 header .profile-picture {
   position: absolute;
   right: 190px;
-  bottom: -50px;
+  bottom: -80px;
   z-index: 2;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 150px;
   border-radius: 50%;
 }
 header .profile-picture img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 120px;
+  height: 150px;
+  border-radius: 30%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 header .contact-container {
@@ -186,7 +186,7 @@ header .contact-container .contact-list li span {
 
 /* skill */
 .skill {
-  margin-bottom: 0 !important ;
+  /* margin-bottom: 0 !important ; */
 }
 .skill ul li {
   height: 15px;
