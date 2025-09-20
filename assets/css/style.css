@@ -52,7 +52,6 @@ header .job-container {
   line-height: 20px;
 }
 header .profile-picture {
-  position: absolute;
   right: 190px;
   bottom: -80px;
   z-index: 2;
@@ -67,9 +66,8 @@ header .profile-picture img {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 header .contact-container {
-  position: relative;
-  top: 0px;
-  left: 30px;
+  display: flex;
+  align-items: end;
 }
 header .contact-container .contact-list li {
   position: relative;
