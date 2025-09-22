@@ -17,7 +17,7 @@ body {
 /* header */
 header {
   position: relative;
-  padding: 30px 75px;
+  padding: 30px 60px;
 
   border-bottom: 1px solid #ededed;
 }
@@ -64,7 +64,6 @@ header .profile-picture {
 header .profile-picture img {
   width: 120px;
   height: 150px;
-  border-radius: 30%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 header .contact-container {
