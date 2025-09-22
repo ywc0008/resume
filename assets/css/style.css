@@ -166,6 +166,16 @@ header .contact-container .contact-list li span {
   padding-left: 20px;
 }
 
+.experience .detail ul {
+  list-style: circle !important;
+  margin-left: 30px;
+  padding-left: 0;
+}
+
+.experience .detail ul li {
+  list-style: circle !important;
+}
+
 .now-working {
   /* color: mediumspringgreen; */
   font-weight: bold;
