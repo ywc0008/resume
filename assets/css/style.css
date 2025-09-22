@@ -17,7 +17,8 @@ body {
 /* header */
 header {
   position: relative;
-  padding: 30px;
+  padding: 30px 75px;
+
   border-bottom: 1px solid #ededed;
 }
 header h1 {
@@ -58,6 +59,7 @@ header .profile-picture {
   width: 120px;
   height: 150px;
   border-radius: 50%;
+  margin-right: 20px;
 }
 header .profile-picture img {
   width: 120px;
@@ -128,6 +130,14 @@ header .contact-container .contact-list li span {
   margin: 0 0 10px;
 }
 
+.introduction {
+  font-size: 14px;
+}
+
+.no-padding {
+  padding-left: 0px !important;
+}
+
 /* experience */
 .experience h3 {
   font-size: 18px;
@@ -155,7 +165,8 @@ header .contact-container .contact-list li span {
 }
 
 .now-working {
-  color: mediumspringgreen;
+  /* color: mediumspringgreen; */
+  font-weight: bold;
   font-size: 12px;
 }
 
