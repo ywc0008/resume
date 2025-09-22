@@ -99,7 +99,7 @@ header .contact-container .contact-list li span {
   top: 0;
   left: 0;
   width: 720px;
-  padding: 75px 0 40px;
+  padding: 40px 0 40px;
   border-right: 1px solid #ededed;
 }
 
@@ -111,6 +111,9 @@ header .contact-container .contact-list li span {
 #main .resume-item .inner {
   padding-bottom: 30px;
   border-bottom: 1px solid #ededed;
+}
+.add-margin-bottom {
+  margin-bottom: 30px !important;
 }
 #main .resume-item h2 {
   position: absolute;
