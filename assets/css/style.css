@@ -247,3 +247,15 @@ footer {
 footer a {
   font-weight: bold;
 }
+
+/* print styles */
+@media print {
+  .skill .skill-bar {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .skill .skill-bar .bar {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
