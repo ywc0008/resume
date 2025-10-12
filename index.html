@@ -195,20 +195,48 @@
                     target="_blank"
                     >https://foodtech.telosdev.net/</a
                   >
-                  <span class="date">2025.09 - 진행중</span>
+                  <span class="date">2024.09 - 진행중</span>
                   <ul class="detail">
                     <li>
-                      피그마 디자인 토큰을 TailwindCSS로 디자인 시스템 구현
+                      Figma 기반 디자인 시스템 구축
+                      <ul>
+                        <li>디자인 토큰을 Tailwind CSS 변수로 체계화</li>
+                        <li>
+                          /test-ui 페이지로 팀원들이 시각적으로 확인하고 조립
+                          가능한 개발 환경 제공
+                        </li>
+                      </ul>
                     </li>
-                    <li>jwt 기반 인증 방식 구현</li>
                     <li>
-                      fetch API의 wrapper 함수 구현하여 refresh/access token
-                      주입 자동화하여 팀원들 개발 리드
+                      API 통신 표준화 및 JWT 인증 시스템
                       <ul>
                         <li>
-                          fetch API wrapper 함수 사용법/작성법/코드 컨벤션/타입
-                          정의 가이드 문서화
+                          apiFetch 래퍼 함수로 TypeScript 타입 안정성 및 에러
+                          처리 통합
                         </li>
+                        <li>
+                          Access Token(서버 세션) + Refresh Token(HTTP Only
+                          쿠키) 하이브리드 인증 구조
+                        </li>
+                        <li>
+                          401 에러 시 자동 토큰 갱신 및 요청 재시도 로직 구현
+                        </li>
+                        <li>
+                          API 가이드 문서 작성으로 팀 전체 개발 생산성 향상
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      게시판 시스템 및 복잡한 기능 구현
+                      <ul>
+                        <li>
+                          Lexical 리치 텍스트 에디터 통합 (HTML 포맷, XSS 방어)
+                        </li>
+                        <li>
+                          다양한 테이블 타입 지원 (체크박스 선택형, 기본형,
+                          건의사항형)
+                        </li>
+                        <li>Recharts 기반 마이페이지 사용이력 차트 시각화</li>
                       </ul>
                     </li>
                   </ul>
