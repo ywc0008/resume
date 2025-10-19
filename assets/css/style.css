@@ -141,6 +141,10 @@ header .contact-container .contact-list li span {
 }
 
 /* experience */
+.experience > .inner > ul > li {
+  margin-bottom: 40px;
+}
+
 .experience h3 {
   font-size: 18px;
 }
