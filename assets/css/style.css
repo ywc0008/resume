@@ -145,7 +145,7 @@ header .contact-container .contact-list li span {
   font-size: 18px;
 }
 .experience .company {
-  margin: 0 0 10px;
+  margin: 0 0 15px;
   color: #959595;
   font-size: 13px;
   font-weight: normal;
@@ -159,6 +159,7 @@ header .contact-container .contact-list li span {
 }
 .experience .detail {
   font-size: 14px;
+  margin-top: 8px;
 }
 
 .experience .detail {
