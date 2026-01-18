@@ -262,7 +262,7 @@
                           react-unity-webgl로 3D 시뮬레이션 기반 교육 콘텐츠
                           웹빌드 통합
                         </li>
-                        <!-- <li>웹 → Unity 실시간 양방향 통신 구현 중</li> -->
+                        <li>웹/Unity 실시간 양방향 통신 브릿지 구현</li>
                       </ul>
                     </li>
                   </ul>
@@ -351,56 +351,38 @@
               <h2>사이드 프로젝트</h2>
               <ul>
                 <li class="add-margin-bottom">
-                  <h3>개인 블로그 - IDE 스타일 블로그</h3>
+                  <h3>개인 블로그</h3>
                   <a class="company" href="https://ywc.life" target="_blank"
                     >https://ywc.life/</a
                   >
-                  <span class="date">2025.10 - 진행중</span>
+                  <span class="date">2026.01 - 진행중</span>
                   <ul class="detail">
                     <li>
-                      콘텐츠 관리 시스템
+                      Astro 5 + MDX 기반 정적 블로그
                       <ul>
                         <li>
-                          MDX 기반 블로그 포스트 작성 및 렌더링 (Shiki 코드
-                          하이라이팅)
+                          Cloudflare Pages 배포 (Vercel → Cloudflare
+                          마이그레이션)
                         </li>
                         <li>
-                          카테고리/태그 시스템, 읽기 시간 계산, 관련 포스트 추천
-                        </li>
-                        <li>
-                          SEO 최적화 (sitemap, robots.txt, RSS feed 자동 생성)
+                          Zod 스키마 기반 Content Collections로 타입 안전한 MDX 관리
                         </li>
                       </ul>
                     </li>
                     <li>
-                      컴포넌트 아키텍처 및 테스팅
+                      성능 최적화 및 SEO
                       <ul>
+                        <li>Sharp 이미지 최적화 (WebP 자동 변환)</li>
                         <li>
-                          Atomic Design Pattern으로 계층적 컴포넌트 설계
-                          (재사용률 80%)
-                        </li>
-                        <li>Storybook으로 컴포넌트 문서화 및 시각적 테스트</li>
-                        <li>Vitest 단위 테스트 + Playwright E2E 테스트 구현</li>
-                      </ul>
-                    </li>
-                    <li>
-                      검색 및 네비게이션
-                      <ul>
-                        <li>FlexSearch 기반 실시간 전문 검색 인덱싱</li>
-                        <li>
-                          VSCode 스타일 탭 네비게이션 및 카테고리/태그 필터링
+                          SEO 최적화 (Open Graph, JSON-LD 구조화 데이터, sitemap.xml)
                         </li>
                       </ul>
                     </li>
                     <li>
-                      성능 및 접근성
+                      기능
                       <ul>
-                        <li>Turbopack + Sharp 이미지 최적화 파이프라인</li>
-                        <li>
-                          Next.js 15 App Router로 Server Components 최적화
-                        </li>
-                        <li>@axe-core/react로 WCAG 2.1 AA 준수 검증</li>
-                        <li>다크모드/라이트모드 지원 (VSCode Dark+ 테마)</li>
+                        <li>Giscus GitHub Discussions 댓글 연동</li>
+                        <li>Pagefind 기반 정적 검색 구현 (빌드 타임 인덱싱, 디바운싱 적용)</li>
                       </ul>
                     </li>
                   </ul>
