@@ -77,7 +77,9 @@ When making content updates to the resume:
   - Most sections use `<section class="resume-item experience">` with `.inner` div
   - Skills section is the ONLY exception: `<section class="resume-item skill">`
 - **Date Formatting**: Use format `YYYY.MM - YYYY.MM` or `YYYY.MM - 진행중` for ongoing projects/jobs
-- **Employment Duration**: When showing employment duration like "재직중(X년 Y개월)", calculate from start date to current date (2026-01 as of now)
+- **Ongoing Projects**: Use `진행중` for projects still in progress (not completed)
+- **Employment Duration**: When showing employment duration like "재직중(X년 Y개월)", calculate from start date to current date
+- **Chronological Order**: Projects and side projects should be ordered by date (most recent first)
 - **Project Structure Pattern**:
   - Title: `<h3>Project Name</h3>`
   - URL: `<a class="company" href="URL" target="_blank">URL</a>`
