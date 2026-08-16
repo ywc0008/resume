@@ -508,45 +508,52 @@
                                     <span class="date">2026.01 - 진행중</span>
                                     <ul class="detail">
                                         <li>
-                                            Astro 5 + MDX 기반 정적 블로그
+                                            Next.js 16 (App Router, SSG) +
+                                            React 19 + Tailwind CSS 4 기반 기술
+                                            블로그 구축
                                             <ul>
                                                 <li>
-                                                    Cloudflare Pages 배포
-                                                    (Vercel → Cloudflare
-                                                    마이그레이션)
+                                                    OpenNext 어댑터로 Cloudflare
+                                                    Workers 배포, main push 시
+                                                    자동 빌드·배포 CI 구성
                                                 </li>
                                                 <li>
-                                                    Zod 스키마 기반 Content
-                                                    Collections로 타입 안전한
-                                                    MDX 관리
+                                                    Astro 5 블로그에서 재구축 —
+                                                    기존 글 마이그레이션 및
+                                                    리다이렉트로 URL·SEO 보존
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            성능 최적화 및 SEO
+                                            Workers 번들 한도(gzip 3MiB) 내
+                                            서버 번들 최적화
                                             <ul>
                                                 <li>
-                                                    Sharp 이미지 최적화 (WebP
-                                                    자동 변환)
+                                                    Shiki → refractor(Prism)
+                                                    교체, Mermaid 동적
+                                                    임포트(ssr: false) 분리로
+                                                    무료 한도 내 배포 유지
                                                 </li>
                                                 <li>
-                                                    SEO 최적화 (Open Graph,
-                                                    JSON-LD 구조화 데이터,
-                                                    sitemap.xml)
+                                                    OpenNext 어댑터 업스트림
+                                                    버그를 pnpm 네이티브 패치로
+                                                    해결 및 버전 고정
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            기능
+                                            타입 안전 콘텐츠 파이프라인 및 SEO
                                             <ul>
                                                 <li>
-                                                    Giscus GitHub Discussions
-                                                    댓글 연동
+                                                    Zod 스키마 기반 MDX
+                                                    frontmatter 검증 로더 구현,
+                                                    Vitest 단위 테스트 작성
                                                 </li>
                                                 <li>
-                                                    Pagefind 기반 정적 검색 구현
-                                                    (빌드 타임 인덱싱, 디바운싱
-                                                    적용)
+                                                    Satori 빌드 타임 OG 이미지
+                                                    자동 생성, JSON-LD ·
+                                                    sitemap · RSS(XSL 구독
+                                                    페이지) · llms.txt 제공
                                                 </li>
                                             </ul>
                                         </li>
