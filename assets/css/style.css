@@ -211,31 +211,22 @@ header .contact-container .contact-list li span {
 }
 
 /* skill */
-.skill {
-  /* margin-bottom: 0 !important ; */
-}
 .skill ul li {
-  height: 15px;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 20px;
 }
 .skill h3 {
-  float: left;
-  width: 30%;
-  height: 100%;
+  flex: 0 0 30%;
   font-size: 14px;
   font-weight: normal;
-  line-height: 14px;
+  color: #959595;
 }
-.skill .skill-bar {
-  float: left;
-  width: 70%;
-  height: 100%;
-  background: #f5f5f5;
-}
-.skill .skill-bar .bar {
-  display: block;
-  width: 60%;
-  height: 100%;
-  background: #666;
+.skill .skill-list {
+  flex: 1 1 70%;
+  color: #444;
 }
 
 /* footer */
@@ -251,11 +242,7 @@ footer a {
 
 /* print styles */
 @media print {
-  .skill .skill-bar {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  .skill .skill-bar .bar {
+  body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
