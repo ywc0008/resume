@@ -498,6 +498,67 @@
                             <h2>사이드 프로젝트</h2>
                             <ul>
                                 <li class="add-margin-bottom">
+                                    <h3>
+                                        Indieblog - 한국 개발자 개인 블로그 RSS
+                                        발견 플랫폼
+                                    </h3>
+                                    <a
+                                        class="company"
+                                        href="https://indieblog.net"
+                                        target="_blank"
+                                        >https://indieblog.net/</a
+                                    >
+                                    <span class="date">2026.06 - 진행중</span>
+                                    <ul class="detail">
+                                        <li>
+                                            Next.js 16 (App Router) + OpenNext
+                                            기반 Cloudflare Workers 풀스택
+                                            서비스 설계·구축·런칭 및 운영
+                                            <ul>
+                                                <li>
+                                                    별도 백엔드 없이 Route
+                                                    Handler로 API 겸용, Better
+                                                    Auth GitHub OAuth DB 세션,
+                                                    Turso(libSQL) + Drizzle ORM
+                                                </li>
+                                                <li>
+                                                    Workers에서 @libsql/client
+                                                    번들 실패(ws 의존) →
+                                                    drizzle-orm/sqlite-proxy로
+                                                    Turso HTTP API 직접 호출해
+                                                    해결
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Worker · 수집기 · DB 3-컴포넌트
+                                            아키텍처 설계, 테이블·컬럼별 쓰기
+                                            소유권 분리로 last-write-wins 경합
+                                            원천 차단
+                                            <ul>
+                                                <li>
+                                                    Python feedparser 수집기를
+                                                    GCP VM 데몬 → GitHub Actions
+                                                    크론(2시간 주기)으로 이전해
+                                                    서버 비용 제거
+                                                </li>
+                                                <li>
+                                                    SQLite FTS5 전문 검색,
+                                                    아웃바운드 클릭 집계, Slack
+                                                    웹훅 구독 기능 구현
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            배포·운영 자동화 — main push 시
+                                            Workers Builds 자동 배포, GitHub
+                                            Actions CI(tsc + ESLint) 품질
+                                            게이트, 신규 등록·죽은 피드 Slack
+                                            알림, PostHog 분석
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="add-margin-bottom">
                                     <h3>개인 블로그</h3>
                                     <a
                                         class="company"
