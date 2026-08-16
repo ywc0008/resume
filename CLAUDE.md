@@ -69,6 +69,49 @@ The resume contains these main sections:
 - **Icon Integration**: Font Awesome icons positioned absolutely within contact list items
 - **Print Support**: Includes print-specific CSS media queries with `-webkit-print-color-adjust: exact` for skill bars
 
+## Content Writing Guidelines
+
+Based on the [GreatFrontEnd Front End Resume Guide](https://www.greatfrontend.com/front-end-interview-playbook/resume). Apply these when writing or reviewing resume **content** (wording), as opposed to the markup rules in Editing Guidelines below.
+
+### Bullet Point Formula
+
+Every achievement bullet should follow: **Action verb + specific work + measurable outcome + technology**
+
+- Bad: "웹사이트 개발 (HTML, CSS, JavaScript 사용)" — generic, no scale or impact
+- Good (existing example in this resume): "React.cache() 적용 및 Promise.all 병렬화로 서버 중복 요청 90% 감소"
+- Quantify scale, complexity, and impact wherever possible. A bullet without a number should prompt: "can this be measured?"
+- Repo convention (not from the guide): lead bullets with a strong action verb — 구축, 설계, 개선, 자동화, 최적화, 도입, 마이그레이션
+
+### Front-End Metrics Worth Quantifying
+
+- **Performance**: page load time, bundle size reduction, Lighthouse score
+- **Testing**: coverage percentage (e.g., "커버리지 90%+"), number of critical flows covered
+- **SEO / a11y**: errors/warnings fixed, WCAG compliance level achieved
+- **Tooling / migration**: framework version migrations (e.g., "Next.js 14→15"), scale context (LoC, team size)
+- **Business / product**: users (MAU), time saved (e.g., "월 4시간 이상 반복 작업 자동화"), feature scope
+
+### Section Priority
+
+- 경력사항 (Work Experience) is the most important section — it should carry the most detail
+- Projects and side projects signal continuous learning; technologies NOT used at the current job are a positive signal, so name them explicitly
+- Every project should link to a live URL and/or GitHub repo (repos should have a polished README with screenshots)
+
+### Skills Section (기술스택)
+
+- Do NOT list every technology touched — it dilutes the skills that matter. Cap at 1-2 entries per category (framework, meta-framework, CSS, testing, state management, data fetching)
+- Prefer architecturally significant technologies (React, Next.js) over utility libraries (Lodash)
+- Keep HTML, CSS, JavaScript as the baseline
+
+### Keyword Strategy
+
+- Use "프론트엔드" / "Front End" terminology consistently (job title, intro, experience entries) — recruiters and ATS search by these keywords
+- If a skill appears in a target job listing and there is real experience with it, add it to the skills section
+
+### Length & Density
+
+- With under 5 years of experience, keep content equivalent to one page, not exceeding two
+- The guide's emphasis is quantifying impact, not listing tasks — bullets that cannot show scale or outcome are candidates for rewriting with metrics first, trimming second
+
 ## Editing Guidelines
 
 When making content updates to the resume:
