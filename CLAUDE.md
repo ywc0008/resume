@@ -86,6 +86,7 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 - Good (existing example in this resume): "React.cache() 적용 및 Promise.all 병렬화로 서버 중복 요청 90% 감소"
 - Guide's model bullet: "Built a performant e-commerce website … The site has 20k MAU, loads under 2 seconds and a Lighthouse score of 98. Technologies used: Next.js, React, GraphQL, CSS modules" — note it names **scale, complexity, and impact** plus the stack
 - Quantify scale, complexity, and impact wherever possible. A bullet without a number should prompt: "can this be measured?"
+- **Only include a number when it works in your favor.** A small figure (e.g., two-digit user counts, a handful of seed feeds) reads as "no traction" and hurts more than no number — leave it out and let the live URL speak; add it once it has grown. Numbers pulled from a repo's docs must be checked against the *current* state before use (Repo decision 2026-08-16, learned on Indieblog)
 - Use active voice. Repo convention (not from the guide): lead bullets with a strong action verb — 구축, 설계, 개선, 자동화, 최적화, 도입, 마이그레이션. Bullets that end in a bare noun phrase ("투표 등록 시스템", "관리자 대시보드") are task listings, not achievements — rewrite them
 - List positions and projects in reverse chronological order
 
