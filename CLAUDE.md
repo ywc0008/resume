@@ -73,7 +73,7 @@ The resume contains these main sections:
 
 Sources:
 
-- Primary: [GreatFrontEnd — Ultimate Guide to Front End Engineer Resumes](https://www.greatfrontend.com/front-end-interview-playbook/resume) (front-end-specific advice; the only resume page in that playbook)
+- Primary: [GreatFrontEnd — Ultimate Guide to Front End Engineer Resumes](https://www.greatfrontend.com/front-end-interview-playbook/resume) (front-end-specific advice; the only resume page in that playbook. Last re-read against the live page 2026-09-12 — every point of the article is reflected below)
 - Secondary: [Tech Interview Handbook — Resume](https://www.techinterviewhandbook.org/resume/) (the general software-engineer guide the primary one links to for non-front-end-specific advice: ATS, section order, summary, contact info)
 
 Apply these when writing or reviewing resume **content** (wording, what to include), as opposed to the markup rules in Editing Guidelines below. Where this repo deliberately deviates from a guide, the deviation is noted inline as "Repo decision".
@@ -84,7 +84,7 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 
 - Bad: "웹사이트 개발 (HTML, CSS, JavaScript 사용)" — generic, no scale or impact
 - Good (existing example in this resume): "React.cache() 적용 및 Promise.all 병렬화로 서버 중복 요청 90% 감소"
-- Guide's model bullet: "Built a performant e-commerce website … The site has 20k MAU, loads under 2 seconds and a Lighthouse score of 98. Technologies used: Next.js, React, GraphQL, CSS modules" — note it names **scale, complexity, and impact** plus the stack
+- Guide's model bullet: "Built a performant e-commerce website that allowed users to browse from hundreds of items, add to their cart and checkout with PayPal. The site has 20k MAU, loads under 2 seconds and a Lighthouse score of 98. Technologies used: Next.js, React, GraphQL, CSS modules" — note the order: what the product does (feature scope) → **scale, complexity, and impact** numbers → the stack. Generic bullets like "built a website" get filtered out
 - Quantify scale, complexity, and impact wherever possible. A bullet without a number should prompt: "can this be measured?"
 - **Only include a number when it works in your favor.** A small figure (e.g., two-digit user counts, a handful of seed feeds) reads as "no traction" and hurts more than no number — leave it out and let the live URL speak; add it once it has grown. Numbers pulled from a repo's docs must be checked against the *current* state before use (Repo decision 2026-08-16, learned on Indieblog)
 - Use active voice. Repo convention (not from the guide): lead bullets with a strong action verb — 구축, 설계, 개선, 자동화, 최적화, 도입, 마이그레이션. Bullets that end in a bare noun phrase ("투표 등록 시스템", "관리자 대시보드") are task listings, not achievements — rewrite them
@@ -101,7 +101,7 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 
 ### Section Priority & Ordering
 
-- 경력사항 (Work Experience) is the most important section — it should carry the most detail. Each entry needs company, title, team, and `MM/YYYY`-style dates
+- 경력사항 (Work Experience) is the most important section — it should take up the majority of the page and carry the most detail. Frame bullets as contributions to the employer's **business goals**, not as a task log. Each entry needs company, title, team, and `MM/YYYY`-style dates
 - Do not repeat the same bullet in both 경력사항 and 프로젝트. If a project belongs to a job, put the metrics-bearing bullets in one place and keep the other a short pointer
 - 교육 (Education) goes below experience unless recent grad / under ~3 years experience with weak work history. GPA only if ≥ 3.5/4.0
 - 자격증 / 대외활동 (Awards, Certifications): include only job-relevant items and quantify — TIH format `[Year] | [Quantification] | [Competition]` (e.g., "2023 | 전라북도지사상 (N팀 중 최우수) | 전북 청년 빅데이터 경진대회")
@@ -116,7 +116,7 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 
 ### Projects (프로젝트 / 사이드 프로젝트)
 
-- Include at least 2 projects; each should state the technology stack explicitly
+- Include at least 2 projects; each should state the technology stack explicitly — especially modern technologies the target company uses. This helps ATS ranking and leaves a deeper impression on the reader
 - Side projects signal passion and currency — technologies NOT used at the current job are a positive signal, so name them
 - **Every project links to both the code (GitHub) and the live site where possible.** Repos should have a polished README with screenshots. If a live URL is a company dev/staging domain, verify it is publicly reachable — a dead link is worse than none
 - Non-trivial open-source contributions or maintained OSS projects are worth their own bullet
@@ -127,14 +127,14 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 - **Do NOT use skill bars, percentages, star ratings, or any self-assessed proficiency scale.** Neither guide uses them: the number is unverifiable, anything under ~70% reads as a weakness, and ATS cannot parse a bar. **Repo decision (2026-08-16)**: the original template's `.skill-bar` markup is retired; see Editing Guidelines for the replacement markup
 - Keep at least one line each for Languages and Technologies. HTML, CSS, JavaScript must be in Languages ("otherwise there's something hugely wrong"); TypeScript belongs there too
 - Do NOT list every technology touched — "two React-family frameworks beats a wall of React, Angular, Vue, Svelte, and Solid". Cap at 1–2 entries per category
-- Guide's categories: JS library (React), metaframework (Next.js), state management (Zustand, Redux, Jotai), CSS (Tailwind CSS, CSS Modules, Styled Components), CSS framework (MUI, Chakra), unit testing (Vitest, Jest, Storybook), integration/E2E testing (Playwright, Cypress), data fetching (TanStack Query, SWR, GraphQL, tRPC), language tooling (TypeScript, ESLint), build tools & package managers (optional: Vite, pnpm)
-- Selection criteria, in priority order: (1) appears in the target job listing, (2) architecture-influencing (React) rather than utility (Lodash), (3) widely known or rapidly gaining popularity, (4) demonstrates breadth — never two technologies serving the identical purpose (reads as a red flag)
+- Guide's categories (1–2 entries each; not every category applies — include only the relevant ones): JavaScript libraries (React, Angular, Vue, Svelte), metaframeworks (Next.js, Gatsby, Nuxt, SvelteKit), state management (Redux, Flux, Jotai, Zustand, Relay), CSS (CSS Modules, Styled Components, Tailwind CSS, Sass, Less), CSS frameworks (Bootstrap, MUI, Chakra UI, Bulma), unit testing (Jest, Vitest, Storybook, Mocha, Jasmine, Karma), data fetching (GraphQL, tRPC, TanStack Query, SWR), integration testing (Cypress, Selenium, Puppeteer, WebdriverIO, Playwright), language tooling (Babel, TypeScript, Flow, ESLint), build tools — optional (webpack, Vite, Parcel, Gulp, Rollup, Browserify), package management — optional (npm, Yarn, pnpm)
+- Selection criteria, in priority order: (1) appears in the target job listing and you have real experience with it, (2) architecture-influencing (React dictates the surrounding choices) rather than utility (Underscore/Lodash is swappable), (3) widely known or rapidly gaining popularity — shows you keep up with the ecosystem, and the company may be moving to it, (4) demonstrates breadth — never two technologies serving the identical purpose (few job listings ask for it, and it reads as a red flag); too many entries of one category makes your actual skills harder to read
 - Only list what you can defend in an interview
 - AI tooling (Claude Code) is a repo-specific addition not covered by the guides — keep it to a single "Tools" line. List only tools actually in daily use (Cursor dropped 2026-08). Protocols/specs like MCP are not skills — if there is real experience building MCP servers or similar, it belongs in an experience bullet with an outcome, not in the skills list
 
 ### Keyword & ATS Strategy
 
-- Use "프론트엔드" / "Front End" terminology consistently (job title, intro, experience entries) — recruiters and ATS search by these keywords; retitle roles as "Frontend Developer" / "Front End Engineer" where truthful
+- Use "프론트엔드" / "Front End" terminology consistently (job title, intro, experience entries) — recruiters and ATS search by these keywords, so sprinkle "Front End" across the resume where possible. If the official title was "Software Engineer" but the work was mostly front end, retitle as "Front End Engineer" / "Front End Software Engineer" / "Software Engineer (Front End)" (Korean: "프론트엔드 개발자") — only where truthful
 - Mirror the language of the target job description in Skills, and repeat the same keywords naturally in Experience bullets. Some ATS weight a skill by frequency and by which section it appears in — but never keyword-stuff; a human reads it next
 - Spell out abbreviations at least once (e.g., "Amazon Web Services (AWS)")
 - To generalize across a role type: collect 3–5 job descriptions, run a word-frequency pass, and make sure the recurring keywords with real experience behind them appear in the resume
@@ -142,7 +142,9 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 
 ### Format & Delivery (guide rules that apply when exporting this HTML resume to PDF)
 
-- Single column, common fonts (Arial, Calibri, Garamond, or the OS-installed Korean equivalent), 1–2 fonts total, minimum ~11px/10pt body text
+- Front-end engineers are expected to have a keen sense of design, so a resume that is not visually neat reflects poorly on the candidate. It does not need to be fancy — just neat and visually pleasing
+- Single column, common fonts (Arial, Calibri, Garamond, or the OS-installed Korean equivalent), 1–2 fonts total (at most one for headings and one for body), minimum ~11px/10pt body text
+- The guide says to author in Word / Google Docs / Pages / LaTeX so ATS can parse the file, and to avoid design software (Figma, Canva, Photoshop). **Repo decision**: this semantic HTML page is the source of truth and browser print-to-PDF is the export path; that is only acceptable because the output is real text — never render text as images or rely on CSS-generated content to carry information
 - Submit as PDF with **selectable text** — never a screenshot/image. When printing this page to PDF, run the "plain-text test": copy-paste the PDF into a .txt and check nothing is missing, garbled, or reordered
 - Do not rely on headers/footers or decorative graphics to carry information (ATS may drop them)
 - Under 5 years of experience: one page preferred, two maximum
