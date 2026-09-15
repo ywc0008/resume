@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A static HTML5/CSS3 online resume (CV) website for a Korean front-end developer. This is a simple static website with no build process or dependencies beyond basic web technologies.
 
+The single `index.html` is the source for **two documents**: the 1–2 page 이력서 (compact view — the default, what GitHub Pages shows and what prints) and the full 경력기술서 (`?full`). See Content Writing Guidelines → Two Outputs from One Source.
+
 ## Architecture
 
 - **Single-page static site**: Built with semantic HTML5 structure
@@ -48,6 +50,8 @@ No linting, building, or testing commands are configured - this is a pure static
 
 ## Content Structure
 
+The page renders in two modes (compact 이력서 by default / full 경력기술서 with `?full` — see Content Writing Guidelines → Two Outputs from One Source). The section list below is the full view; the default compact view hides sub-bullets and `.career-only` elements.
+
 The resume contains these main sections:
 - **Header**: Contact info, profile picture, name/title with flexbox layout and absolute positioning
 - **자기소개 (Introduction)**: Personal introduction paragraph in `<p class="introduction">`
@@ -58,7 +62,7 @@ The resume contains these main sections:
 - **자격증 (Certifications)**: Professional certifications with issuing organizations (uses `experience` class)
 - **대외활동 (External Activities)**: Awards, competitions, and volunteer work (uses `experience` class)
 - **교육 (Education)**: Academic background (uses `experience` class)
-- **Footer**: Copyright notice with year and GitHub link (update year manually when needed)
+- **Footer**: Copyright notice with year and GitHub link (update year manually when needed), plus the screen-only mode toggle link (`.mode-link.only-compact` → `?full`, `.mode-link.only-full` → `index.html`)
 
 ## Important Technical Details
 
@@ -67,7 +71,14 @@ The resume contains these main sections:
 - **Section Positioning**: Main content uses absolute positioning for section headers (right: -240px)
 - **Korean Typography**: Noto Sans Korean font family specifically for Korean text rendering
 - **Icon Integration**: Font Awesome icons positioned absolutely within contact list items
-- **Print Support**: Includes a print-specific CSS media query block (`@media print`). Skill bar color rules there are legacy and can be removed with the `.skill-bar` styles
+- **Print Support (Cmd+P → PDF)**: `assets/css/style.css` ends with an `@page` rule and an `@media print` block that make the printout deterministic instead of depending on browser defaults. Printing produces the compact 이력서 unless the URL has `?full` (see Editing Guidelines → Two-Mode Markup). What the block does, and why:
+  - `@page { size: A4; margin: 10mm 0 }` — fixes paper and margins so the browser's default margins do not stack on top of the page's own side padding (the "double margin" look). Side margin is 0 because the wrapper's 60px padding already provides it
+  - `.resume-wrapper { zoom: 0.826 }` — 960px → 210mm, so the print is the screen layout scaled to the paper width, the same in every browser, rather than each browser's own shrink-to-fit. `body`/`html` backgrounds are forced white, the card shadow removed
+  - Vertical rhythm is tightened (header/section/footer padding, sub-bullet gap 10→3px) so the compact view fits 2 A4 pages and the full view does not spill a lone footer onto an extra page. Print rules that fight `#main ul li` must carry `#main` too — the id selector wins otherwise (this bit us once)
+  - `#main .resume-item h2 { top: 0 }` — the screen value `-10px` clips the section heading when a section starts a new page
+  - Break rules: `break-inside: avoid` on bullet groups (`.detail > li`), skills rows, the intro, and — compact only — whole company entries; `break-after: avoid` on entry headings so a company/project title never ends a page alone. Deliberately **not** on tall blocks (a company entry in full view, a whole section): an unbreakable block taller than the space left is pushed to the next page and leaves a blank gap
+  - Measured 2026-09-12 (Chromium `page.pdf`, `preferCSSPageSize`, every page rasterized and inspected): compact 2 pages, full 4 pages, A4, selectable text, no clipped edge, no half-empty page. Same result with an extra 10mm user margin on all sides
+  - Cmd+P checklist for the user: 용지 A4, 여백 "기본값" (Chrome takes the `@page` values), 배율 "기본값", "머리글 및 바닥글" 체크 해제 (otherwise the browser prints date/URL into the 10mm band), "배경 그래픽" not needed. After any layout or spacing change, re-run the measurement above — page count is the regression test
 
 ## Content Writing Guidelines
 
@@ -77,6 +88,20 @@ Sources:
 - Secondary: [Tech Interview Handbook — Resume](https://www.techinterviewhandbook.org/resume/) (the general software-engineer guide the primary one links to for non-front-end-specific advice: ATS, section order, summary, contact info)
 
 Apply these when writing or reviewing resume **content** (wording, what to include), as opposed to the markup rules in Editing Guidelines below. Where this repo deliberately deviates from a guide, the deviation is noted inline as "Repo decision".
+
+### Two Outputs from One Source (Repo decision 2026-09-12)
+
+The guides' length rules (1 page under 5 years, 2 max) and the Korean convention of submitting 이력서 and 경력기술서 as separate documents are reconciled by producing **both from this one file**. Never maintain them as two files — drift between copies (a metric updated in one and not the other) is the failure this rule exists to prevent.
+
+- **이력서 = compact view (the default).** This is what GitHub Pages shows, what a recruiter sees first, and what prints. Must fit 1–2 A4 pages. What survives:
+  - Header, 자기소개, 기술스택, 자격증, 교육, footer — unchanged
+  - 경력사항: **top-level bullets only**, 3–5 per company. Each is a single line that carries its own metric — it is the only line the 이력서 reader sees
+  - 프로젝트 / 사이드 프로젝트: title + link + period + the first top-level bullet as a one-line summary (stack named in it)
+  - 대외활동: title, organization, date only
+- **경력기술서 = full view (`?full`).** Everything on the page: every section, every sub-bullet, live links. No page limit. Reached from the footer link "경력기술서 전체 보기" or by sharing the `?full` URL directly; it doubles as the portfolio
+- **How the split is expressed in markup**: nested `<ul>` inside `ul.detail` (sub-bullets) are hidden in compact mode automatically. Anything else that belongs only to the 경력기술서 — a project's 2nd+ top-level bullet, 대외활동 detail lists, a 6th 경력 bullet — gets `class="career-only"`. Mechanics are in Editing Guidelines → Two-Mode Markup
+- **Writing consequence**: a top-level 경력 bullet must stand alone — action verb, what, one number, stack — and read naturally both with and without its sub-bullets. Put the headline metric in the top-level line; sub-bullets carry the how (approach, secondary numbers, technology detail). Never duplicate a sentence across the two levels to make compact read well; reword the top line instead
+- **Verification after any 경력사항 / 프로젝트 edit**: open `index.html` (default = compact) and check it reads as a complete resume on its own, print it to PDF and confirm it is ≤ 2 pages with selectable text; then open `index.html?full` and check nothing is orphaned (a sub-bullet whose parent line was reworded, a `.career-only` line that now repeats its parent)
 
 ### Bullet Point Formula
 
@@ -140,7 +165,7 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 - To generalize across a role type: collect 3–5 job descriptions, run a word-frequency pass, and make sure the recurring keywords with real experience behind them appear in the resume
 - Contact info: name at the very top; personal email; GitHub and personal site are good-to-haves. TIH also lists phone, city, and LinkedIn — **Repo decision**: this is a public web page, so phone/address are omitted; add them to the PDF export for a specific application if required
 
-### Format & Delivery (guide rules that apply when exporting this HTML resume to PDF)
+### Format & Delivery (guide rules that apply when exporting the 이력서 — the compact view — to PDF)
 
 - Front-end engineers are expected to have a keen sense of design, so a resume that is not visually neat reflects poorly on the candidate. It does not need to be fancy — just neat and visually pleasing
 - Single column, common fonts (Arial, Calibri, Garamond, or the OS-installed Korean equivalent), 1–2 fonts total (at most one for headings and one for body), minimum ~11px/10pt body text
@@ -151,9 +176,10 @@ Every achievement bullet should follow: **Action verb + specific work + measurab
 
 ### Length & Density
 
+- The page-count rule applies to the **이력서 (compact) output**; the full 경력기술서 view has no page limit. Adding detail to the full view is fine, but every addition must decide its tier: does it belong in the top-level line (both views) or in a sub-bullet / `.career-only` element (full view only)?
 - Less is more: a few strong, quantified achievements beat many average ones. Do not list everything just to show quantity
 - The guide's emphasis is quantifying impact, not listing tasks — bullets that cannot show scale or outcome are candidates for rewriting with metrics first, trimming second
-- Trim order when over length: (1) task-list bullets with no metric, (2) sub-bullets that restate the parent, (3) duplicated content between 경력사항 and 프로젝트
+- Trim order when the compact view is over length: (0) demote to `.career-only` before deleting — the full view keeps it, (1) task-list bullets with no metric, (2) sub-bullets that restate the parent, (3) duplicated content between 경력사항 and 프로젝트
 
 ### Review Checklist
 
@@ -166,7 +192,8 @@ Run this before calling a content edit done:
 - [ ] Every project has a live URL and/or GitHub link, and the link resolves
 - [ ] "프론트엔드 / Front End" appears in title, intro, and each role
 - [ ] 자기소개 starts with the role noun and is under ~50 words
-- [ ] Content fits one page (max two) when printed to PDF; PDF text is selectable
+- [ ] Default (compact) view reads as a complete resume on its own: every 경력 top-level line has a number and names the stack, 3–5 lines per company
+- [ ] Default (compact) view fits one page (max two) when printed to PDF; PDF text is selectable. The `?full` view has no page limit
 
 ## Editing Guidelines
 
@@ -195,6 +222,12 @@ When making content updates to the resume:
   - Date: `<span class="date">YYYY.MM</span>`
 - **List Styling**: Use `<ul class="detail">` for main bullet points; nested `<ul>` automatically get circle bullets
 - **Spacing Control**: Add `.add-margin-bottom` class to `<li>` elements when extra spacing needed between major items
+- **Two-Mode Markup** (full 경력기술서 vs compact 이력서 — see Content Writing Guidelines → Two Outputs from One Source):
+  - Nested `<ul>` inside `ul.detail` need no marker; compact mode hides every sub-bullet list globally
+  - Put `class="career-only"` on any other element that should appear only in the full view: a project's 2nd and later top-level `<li>`, the `ul.detail` of a 대외활동 entry, a 경력 top-level `<li>` beyond the 5th. It combines with existing classes (`class="career-only add-margin-bottom"`)
+  - Mode is selected by URL, not by editing markup: `?full` adds `html.full` (the full 경력기술서, on screen and in print); any other URL — GitHub Pages, a plain open, print — is the compact 이력서. The class is set by a 5-line inline `<script>` in `<head>` (on `documentElement`, before body paints, so there is no flash); the hiding rules live in `assets/css/style.css` under "two modes from one source". No build step — keep it that way
+  - The footer carries the toggle: `.mode-link.only-compact` (→ `?full`) and `.mode-link.only-full` (→ `index.html`); both are hidden in print
+  - Never fork content per mode. If a top-level line only reads well with its sub-bullets underneath, rewrite the line; do not add a compact-only duplicate
 - **Skills List** (replaces the retired skill-bar markup): one `<li>` per category, `<h3>` for the category label and `<p class="skill-list">` for the comma-separated items — `<li><h3>Languages</h3><p class="skill-list">HTML, CSS, JavaScript, TypeScript</p></li>`. Never reintroduce `<div class="skill-bar">` / `style="width: XX%"`
 - **HTML Validation Rules**:
   - Never nest heading tags (e.g., `<h3>` inside `<h3>`)

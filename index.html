@@ -25,6 +25,13 @@
         <link href="./assets/css/common.css" rel="stylesheet" />
         <link href="./assets/css/style.css" rel="stylesheet" />
 
+        <!-- 두 모드: ?full → 경력기술서(전체), 그 외(깃헙 페이지스·인쇄) → 이력서(compact). head 에서 실행해 깜빡임 방지 -->
+        <script>
+            if (new URLSearchParams(location.search).has("full")) {
+                document.documentElement.classList.add("full");
+            }
+        </script>
+
         <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
         <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
         <!--[if lt IE 9]>
@@ -147,42 +154,200 @@
                                     >
                                     <ul class="detail">
                                         <li>
-                                            Admin CRUD 페이지 풀 자동화 시스템
-                                            설계 및 구축
+                                            Next.js 14→16(Turbopack)·React
+                                            18→19·antd 5→6·TypeScript 5.8→6.0
+                                            마이그레이션 주도 — Jenkins 배포
+                                            시간 59% 단축(3분 30초→1분 26초)
                                             <ul>
                                                 <li>
-                                                    Spec-Kit 기반 LLM 일관성
-                                                    체계 도입 (Constitution,
-                                                    Memory, Spec 템플릿)
+                                                    로컬 콜드 빌드 -53%, dev
+                                                    서버 기동 -79%, standalone
+                                                    이미지 -21%
                                                 </li>
                                                 <li>
-                                                    React.cache() 적용 및
-                                                    Promise.all 병렬화로 서버
-                                                    중복 요청 90% 감소
+                                                    antd 6 전환 시 228개 파일의
+                                                    deprecated API 200여 건
+                                                    정리, 깨진 테스트 92건→0건,
+                                                    SonarQube 품질 게이트
+                                                    통과(신규 이슈 0, 커버리지
+                                                    83%)
                                                 </li>
                                                 <li>
-                                                    Vitest 테스트 환경 구축
-                                                    (범용 훅/유틸 커버리지 90%+
-                                                    달성)
+                                                    Lighthouse A/B 재측정으로
+                                                    회귀 없음 확인(desktop 100 /
+                                                    mobile 91) — 번들 회귀 2건
+                                                    사전 차단(미조치 시 LCP
+                                                    5.6s, score 79)
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            마켓플레이스 정산 데이터 자동화 도구
-                                            개발
+                                            어드민 코드베이스 표준화(Phase 1~6)
+                                            및 standalone 레포 분리 — antd +
+                                            Tailwind CSS v4 + TanStack Query로
+                                            통일, Vitest 인프라 도입(현재 3,385
+                                            테스트)·SonarQube CI 구축
                                             <ul>
                                                 <li>
-                                                    Playwright 기반 3개
-                                                    마켓플레이스 정산 데이터
-                                                    자동 수집
+                                                    Chakra UI·emotion·formik
+                                                    혼재 코드 제거, BFF
+                                                    프록시·SSR prefetch·권한
+                                                    시스템 신설, dead code
+                                                    24파일·불용 패키지 정리
                                                 </li>
                                                 <li>
-                                                    Streamlit 대시보드로 실행 및
-                                                    모니터링 UI 제공
+                                                    URL 동기화 공통
+                                                    훅(useFilters/usePagination/useModal)과
+                                                    CrudPageLayout·FormBuilder
+                                                    메타 컴포넌트로 CRUD 화면
+                                                    개발 표준화, React.cache()
+                                                    적용 및 Promise.all
+                                                    병렬화로 서버 중복 요청 90%
+                                                    감소
                                                 </li>
                                                 <li>
-                                                    월 4시간 이상 반복 작업
-                                                    자동화로 업무 효율 개선
+                                                    admin 최초 Vitest 도입으로
+                                                    범용 훅/유틸 커버리지 90%+
+                                                    확보, Storybook UI 카탈로그,
+                                                    self-hosted 러너
+                                                    CI(타입체크·린트·영향 테스트
+                                                    선별·SonarQube·standalone
+                                                    기동 게이트) 구축
+                                                </li>
+                                                <li>
+                                                    모노레포에서 독립 레포로
+                                                    분리·컷오버, ISMS 대응으로
+                                                    SSR prefetch 전면 제거 + 검색
+                                                    게이트 도입(30+ 페이지 서버
+                                                    셸 전환)
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            호텔 예약 웹뷰 신규 도메인 7개
+                                            화면(검색·목록·상세·예약·결제·구매내역·리뷰)
+                                            구축·오픈 — Stackflow + jotai +
+                                            TanStack Query, PG 결제 end-to-end
+                                            (2026.04~06)
+                                            <ul>
+                                                <li>
+                                                    독립 워크스페이스
+                                                    부트스트랩(screen boundary
+                                                    ESLint 룰,
+                                                    DTO→도메인→repository→쿼리
+                                                    훅 계층), Figma 디자인
+                                                    토큰을 Tailwind theme에
+                                                    편입하고 드리프트 테스트로
+                                                    고정
+                                                </li>
+                                                <li>
+                                                    PG(securecode)·WOWPASS 주문
+                                                    연동 체크아웃 구현 — 3개
+                                                    도메인 공통 결제 한도 모달,
+                                                    PG 핸드오프 중 history 잠금,
+                                                    환불·바우처·리뷰 플로우
+                                                </li>
+                                                <li>
+                                                    공유 로깅 코어(WpLog) 추출로
+                                                    호텔 전 구간 이벤트 로깅
+                                                    구축, characterization
+                                                    테스트로 기존 페이로드 무회귀
+                                                    보장
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            운영 장애 원인 규명 및 성능 개선 —
+                                            Sentry 1위 이슈(4.1K 이벤트·3.3K
+                                            사용자) 해소, 웹뷰 청크 -6MB, hero
+                                            이미지 2MB→409KB
+                                            <ul>
+                                                <li>
+                                                    "TypeError: Load failed"
+                                                    unhandled rejection 2건 원인
+                                                    규명 — 401 재시도·next-auth
+                                                    signIn fire-and-forget 경로
+                                                    방어(실패 테스트 선행)
+                                                </li>
+                                                <li>
+                                                    Next 16 dev 배포 1시간
+                                                    타임아웃을 로컬 이미지
+                                                    재현으로 @swc/helpers
+                                                    exports 조건 불일치로
+                                                    특정·해소, 재발 방지용 CI
+                                                    standalone 기동 게이트 추가
+                                                </li>
+                                                <li>
+                                                    미사용 에셋 -8.1MB 제거,
+                                                    엑셀 전량 다운로드 페이지
+                                                    대기 5초→1초
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            마켓플레이스 정산 데이터 자동 수집
+                                            도구 개발(Python + Playwright) —
+                                            네이버 스마트스토어·지마켓 13개월치
+                                            수집 자동화, 재무팀 월 4시간 이상
+                                            수작업 대체
+                                            <ul>
+                                                <li>
+                                                    MarketAdapter 어댑터 패턴,
+                                                    CLI + Streamlit UI 2개
+                                                    진입점, 로그인 세션
+                                                    재사용으로 2회차부터
+                                                    캡차·로그인 생략
+                                                </li>
+                                                <li>
+                                                    지마켓 팝업 누수 근본 원인
+                                                    해결, pytest 60건, 동시 실행
+                                                    가드·절전 복원·Windows 배포
+                                                    패키징
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="career-only">
+                                            PG 파트너 어드민 신규 구축 —
+                                            아키텍처·인프라 결정 및 파운데이션
+                                            구현(Vite + React 19 + Tailwind CSS
+                                            v4 + shadcn/ui, S3 + CloudFront)
+                                            <ul>
+                                                <li>
+                                                    백엔드 토큰 계약 분석으로
+                                                    Next.js BFF 대신 SPA 선택,
+                                                    Amplify 대안으로 S3 +
+                                                    CloudFront 정적 호스팅 확정,
+                                                    정보보호팀과 접근 통제
+                                                    요건(OTP·마스킹·보안성 검토)
+                                                    협의
+                                                </li>
+                                                <li>
+                                                    Figma Plugin API로 변수
+                                                    257개를 덤프해
+                                                    3단(프리미티브→시맨틱→shadcn)
+                                                    디자인 토큰 파이프라인 구축,
+                                                    React Compiler·TanStack
+                                                    Router 도입, SonarQube·Claude
+                                                    코드리뷰 CI 구성
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="career-only">
+                                            Kotlin/Spring 백엔드 — WP 이벤트
+                                            로그 마스터 관리 API 설계·구현부터
+                                            어드민 화면까지 풀스택 완주, 구글시트
+                                            356행 시드 이관
+                                            <ul>
+                                                <li>
+                                                    테이블 3개·v5 CommonResponse
+                                                    규격·Kotest 테스트, 소프트
+                                                    삭제·리비전 diff 구현, 시드
+                                                    SQL 무결성 검증(324행 적재)
+                                                </li>
+                                                <li>
+                                                    어드민 화면 9개 태스크 구현
+                                                    및 Playwright E2E 검증,
+                                                    도메인 테스트 104건
                                                 </li>
                                             </ul>
                                         </li>
@@ -200,35 +365,18 @@
                                     <ul class="detail">
                                         <li>
                                             푸드테크 디지털 통합 플랫폼 웹
-                                            프론트엔드 개발 리드
-                                            <ul>
-                                                <li>
-                                                    Next.js + TypeScript 기반
-                                                    아키텍처 설계 및 API 통신
-                                                    표준화 (JWT 하이브리드 인증)
-                                                </li>
-                                                <li>
-                                                    Figma 디자인 토큰 기반
-                                                    디자인 시스템 구축으로 팀
-                                                    개발 환경 표준화
-                                                </li>
-                                            </ul>
+                                            프론트엔드 개발 리드 — Next.js +
+                                            TypeScript 아키텍처 설계, JWT
+                                            하이브리드 인증 API 통신 표준화,
+                                            Figma 디자인 토큰 기반 디자인 시스템
+                                            구축
                                         </li>
                                         <li>
                                             투표 기반 소셜 플랫폼(고민줌인) 웹
-                                            프론트엔드 개발
-                                            <ul>
-                                                <li>
-                                                    NICE 본인인증 연동 투표
-                                                    시스템 및 포인트 리워드 기능
-                                                    구현
-                                                </li>
-                                                <li>
-                                                    Next.js 14→15, React 18→19
-                                                    마이그레이션 및 Server
-                                                    Components 초기 로딩 최적화
-                                                </li>
-                                            </ul>
+                                            프론트엔드 개발 — NICE 본인인증 연동
+                                            투표·포인트 리워드 구현, Next.js
+                                            14→15·React 18→19 마이그레이션 및
+                                            Server Components 초기 로딩 최적화
                                         </li>
                                     </ul>
                                 </li>
@@ -308,6 +456,11 @@
                                     <span class="date">2025.09 - 2025.12</span>
                                     <ul class="detail">
                                         <li>
+                                            Next.js + TypeScript 기반 푸드테크 통합
+                                            플랫폼 웹 프론트엔드 — 디자인 시스템, JWT
+                                            인증 API 레이어, Lexical 에디터·게시판,
+                                            Unity WebGL 통합 담당
+                                        </li>                                        <li class="career-only">
                                             Figma 기반 디자인 시스템 구축
                                             <ul>
                                                 <li>
@@ -321,7 +474,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             API 통신 표준화 및 JWT 인증 시스템
                                             <ul>
                                                 <li>
@@ -344,7 +497,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             게시판 시스템 및 에디터 구현
                                             <ul>
                                                 <li>
@@ -368,7 +521,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             Unity WebGL 통합
                                             <ul>
                                                 <li>
@@ -398,6 +551,11 @@
                                     <span class="date">2024.08 - 2025.02</span>
                                     <ul class="detail">
                                         <li>
+                                            Next.js 15 + React 19 기반 투표 소셜
+                                            플랫폼 웹 프론트엔드 — NICE 본인인증
+                                            투표·포인트 리워드, 마이페이지, 관리자
+                                            대시보드, 실시간 알림 담당
+                                        </li>                                        <li class="career-only">
                                             투표 등록 시스템
                                             <ul>
                                                 <li>
@@ -410,7 +568,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             마이페이지 및 포인트 관리
                                             <ul>
                                                 <li>
@@ -427,7 +585,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             관리자 대시보드
                                             <ul>
                                                 <li>
@@ -444,7 +602,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             멤버십 랜딩 페이지
                                             <ul>
                                                 <li>
@@ -457,7 +615,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             실시간 알림 시스템
                                             <ul>
                                                 <li>
@@ -470,7 +628,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             Next.js 14→15, React 18→19
                                             마이그레이션
                                             <ul>
@@ -530,7 +688,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             Worker · 수집기 · DB 3-컴포넌트
                                             아키텍처 설계, 테이블·컬럼별 쓰기
                                             소유권 분리로 last-write-wins 경합
@@ -549,7 +707,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             배포·운영 자동화 — main push 시
                                             Workers Builds 자동 배포, GitHub
                                             Actions CI(tsc + ESLint) 품질
@@ -585,7 +743,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             Workers 번들 한도(gzip 3MiB) 내
                                             서버 번들 최적화
                                             <ul>
@@ -602,7 +760,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             타입 안전 콘텐츠 파이프라인 및 SEO
                                             <ul>
                                                 <li>
@@ -648,7 +806,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             SPA 환경 대응
                                             <ul>
                                                 <li>
@@ -662,7 +820,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>
+                                        <li class="career-only">
                                             테스트 및 품질 관리
                                             <ul>
                                                 <li>
@@ -755,7 +913,7 @@
                                         스마일게이트 희망스튜디오
                                     </h4>
                                     <span class="date">2023.08 - 2024.02</span>
-                                    <p class="detail no-padding">
+                                    <p class="detail no-padding career-only">
                                         취약계층 아동 대상 p5.js를 활용한
                                         창의코딩 멘토링
                                     </p>
@@ -769,7 +927,7 @@
                                         전북빅데이터기술교류공동연구회
                                     </h4>
                                     <span class="date">2023.11</span>
-                                    <ul class="detail">
+                                    <ul class="detail career-only">
                                         <li>
                                             테이크아웃 용기 쓰레기통 최적 입지
                                             선정 및 지역화폐 연계 방안 제안
@@ -788,7 +946,7 @@
                                     </h3>
                                     <h4 class="company">한국정보기술학회</h4>
                                     <span class="date">2023.06</span>
-                                    <ul class="detail">
+                                    <ul class="detail career-only">
                                         <li>
                                             퍼스널 컬러 진단을 통한 의상 컬러
                                             조합 추천 서비스
@@ -834,6 +992,12 @@
                     <a href="https://github.com/ywc0008" target="_blank"
                         >ywc0008</a
                     >. All rights reserved.
+                    <a class="mode-link only-compact" href="?full"
+                        >경력기술서 전체 보기</a
+                    >
+                    <a class="mode-link only-full" href="index.html"
+                        >이력서 요약 보기</a
+                    >
                 </p>
             </footer>
             <!-- footer -->

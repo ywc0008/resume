@@ -240,10 +240,94 @@ footer a {
   font-weight: bold;
 }
 
-/* print styles */
+/* two modes from one source
+   default (GitHub Pages, print)  = compact 이력서
+   html.full (URL ?full)          = full 경력기술서
+   sub-bullet lists are hidden globally in compact; anything else
+   that belongs only to the full view carries .career-only */
+html:not(.full) .career-only,
+html:not(.full) .experience .detail li > ul,
+html:not(.full) .only-full {
+  display: none;
+}
+html.full .only-compact {
+  display: none;
+}
+.mode-link {
+  margin-left: 12px;
+  font-weight: normal;
+}
+
+/* print (Cmd+P) — deterministic output regardless of browser defaults
+   - @page fixes paper (A4) and margins (10mm top/bottom, 0 sides) so the
+     browser's own default margins don't stack on top of the page's padding
+   - the 960px wrapper is zoomed to exactly the A4 width instead of relying on
+     each browser's shrink-to-fit, so the print is the screen layout, scaled
+   - vertical rhythm is tightened so the compact 이력서 fits 2 pages
+   - break rules keep company/project headers with their bullets and stop a
+     bullet group from being split across pages; big blocks are not made
+     unbreakable (that would push them to a new page and leave a blank gap) */
+@page {
+  size: A4;
+  margin: 10mm 0;
+}
 @media print {
+  html,
+  body {
+    background: #fff;
+  }
   body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+  .resume-wrapper {
+    width: 960px;
+    zoom: 0.826; /* 960px → 210mm */
+    margin: 0 auto;
+    box-shadow: none;
+  }
+  header {
+    padding: 20px 60px;
+  }
+  #main > .resume-item-wrapper {
+    padding: 24px 0 12px;
+  }
+  #main .resume-item {
+    margin-bottom: 20px;
+  }
+  #main .resume-item .inner {
+    padding-bottom: 12px;
+  }
+  #main .resume-item h2 {
+    top: 0; /* -10px would be clipped when a section starts a page */
+  }
+  #main .experience .detail ul li {
+    /* sub-bullets: 10px on screen (#main ul li — the id selector wins, so this must carry #main too);
+       tighter in print so the full view does not spill a lone footer onto a new page */
+    margin-bottom: 3px;
+  }
+  html:not(.full) .experience > .inner > ul > li,
+  .experience .detail > li,
+  .skill ul li,
+  .introduction {
+    break-inside: avoid;
+  }
+  .experience h3,
+  .experience .company {
+    break-after: avoid;
+  }
+  li,
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  .add-margin-bottom {
+    margin-bottom: 16px !important;
+  }
+  footer {
+    padding: 12px 30px;
+  }
+  .mode-link {
+    display: none;
   }
 }
